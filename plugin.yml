@@ -1,0 +1,4 @@
+name: WindeavesAuth
+main: com.windeaves.WindeavesAuth
+version: 0.1-Alpha
+description: A Auth Plugin for Windeaves Collection
