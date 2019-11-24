@@ -59,4 +59,9 @@ public class PlayerManager {
         }
         return 1;
     }
+
+    public void setPlayerPassword(Player p, String arg) {
+        registeredPlayer.add(p.getName());
+        // to-do: set player password
+    }
 }

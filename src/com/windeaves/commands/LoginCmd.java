@@ -5,8 +5,6 @@ import com.windeaves.managers.LoginManager;
 import com.windeaves.managers.MessageManager;
 import com.windeaves.managers.PlayerManager;
 
-import org.bukkit.BanList;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -36,4 +36,20 @@ public class MessageManager {
     public void showWrongPasswordMes(Player p) {
         p.sendMessage(prefix + "Wrong Password");
     }
+
+    public void showAlreadyResMes(Player p) {
+        p.sendMessage(prefix + "Already Register");
+    }
+
+    public void showRegisterDiffPasswordMes(Player p) {
+        p.sendMessage(prefix + "Different Password");
+    }
+
+    public void showRegisterInvalidPasswordMes(Player p) {
+        p.sendMessage(prefix + "Password not match with standard");
+    }
+
+    public void showRegisterSuccessMes(Player p) {
+        p.sendMessage(prefix + "Register Success");
+    }
 }
