@@ -13,7 +13,6 @@ public class Tool {
     }
 
     public String encryptedPassword(String org) {
-        // to-do: Use a encrypted password
-        return org;
+        return Integer.valueOf(org.hashCode()).toString();
     }
 }
