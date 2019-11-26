@@ -52,4 +52,20 @@ public class MessageManager {
     public void showRegisterSuccessMes(Player p) {
         p.sendMessage(prefix + "Register Success");
     }
+
+    public void showResetCADUsageMes(Player p) {
+        p.sendMessage(prefix + "Reset Usage");
+    }
+
+    public void showResetPasswordWrongWarn(Player p) {
+        p.sendMessage(prefix + "Old Password Wrong. Attempt times record.");
+    }
+
+    public void showResetPasswordSucMes(Player p) {
+        p.sendMessage(prefix + "Reset Successfully");
+    }
+
+    public void showResetCADUsage(Player p) {
+        p.sendMessage(prefix + "Reset CAD Usage");
+    }
 }

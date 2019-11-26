@@ -4,14 +4,13 @@ import com.windeaves.managers.BanManager;
 import com.windeaves.managers.LoginManager;
 import com.windeaves.managers.MessageManager;
 import com.windeaves.managers.PlayerManager;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class LoginCmd implements CommandExecutor {
+public class ResetPasswordCmd implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
@@ -21,7 +20,8 @@ public class LoginCmd implements CommandExecutor {
         }
 
         Player p = (Player) sender;
-        if(cmd.getName().equalsIgnoreCase("login")) {
+
+        if(cmd.getName().equalsIgnoreCase("ResetPassword")) {
 
             // to-do: deal with case: no spawn location
 
@@ -30,26 +30,37 @@ public class LoginCmd implements CommandExecutor {
                 return true;
             }
 
-            if(args.length != 1) {
-                MessageManager.getInstance().showLoginMes(p);
+            if(!LoginManager.getInstance().isAuthPlayer(p)) {
+                MessageManager.getInstance().showRegisterMes(p);
                 return true;
             }
 
-            if(LoginManager.getInstance().isAuthPlayer(p)) {
-                MessageManager.getInstance().showAlreadyLoginMes(p);
+            if(args.length != 3) {
+                MessageManager.getInstance().showResetCADUsage(p);
                 return true;
             }
 
             if(!PlayerManager.getInstance().attemptAuthPlayer(p, args[0])) {
-                MessageManager.getInstance().showWrongPasswordMes(p);
-                MessageManager.getInstance().showLoginMes(p);
+                MessageManager.getInstance().showResetPasswordWrongWarn(p);
                 PlayerManager.getInstance().failAttempt(p);
                 return true;
             }
 
-            PlayerManager.getInstance().successAttempt(p);
-            LoginManager.getInstance().authPlayer(p);
+            if(!args[1].equals(args[2])) {
+                MessageManager.getInstance().showResetCADUsage(p);
+                return true;
+            }
 
+            if(args[1].length() < 6 || args[1].length() > 16) {
+                MessageManager.getInstance().showRegisterInvalidPasswordMes(p);
+                return true;
+            }
+
+            PlayerManager.getInstance().setPlayerPassword(p, args[1]);
+            MessageManager.getInstance().showResetPasswordSucMes(p);
+            PlayerManager.getInstance().successAttempt(p);
+
+            return true;
         }
 
         return false;

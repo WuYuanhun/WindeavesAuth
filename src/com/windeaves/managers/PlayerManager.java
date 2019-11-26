@@ -1,6 +1,7 @@
 package com.windeaves.managers;
 
 import com.windeaves.utils.Tool;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -47,6 +48,13 @@ public class PlayerManager {
         } else {
             this.attemptTimes.put(p.getName(), 1);
         }
+        int attemptTimes = PlayerManager.getInstance().getPlayerAttemptTimes(p);
+        if(attemptTimes >= 5) {
+            BanManager.getInstance().passwordBan(p);
+            p.kickPlayer(ChatColor.RED + "Banned: Contact Server Operator");
+        } else if(attemptTimes >= 3) {
+            p.kickPlayer(ChatColor.RED + "Invalid Password: Too Many Times");
+        }
     }
 
     public void successAttempt(Player p) {
@@ -57,7 +65,7 @@ public class PlayerManager {
         if(!this.attemptTimes.containsKey(p.getName())) {
             return 0;
         }
-        return 1;
+        return this.attemptTimes.get(p.getName());
     }
 
     public void setPlayerPassword(Player p, String arg) {
