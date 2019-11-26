@@ -1,5 +1,6 @@
 package com.windeaves.managers;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class MessageManager {
@@ -67,5 +68,9 @@ public class MessageManager {
 
     public void showResetCADUsage(Player p) {
         p.sendMessage(prefix + "Reset CAD Usage");
+    }
+
+    public void showCommandHelp(Player p) {
+        p.sendMessage(prefix + "Command Help");
     }
 }

@@ -69,7 +69,17 @@ public class PlayerManager {
     }
 
     public void setPlayerPassword(Player p, String arg) {
-        registeredPlayer.add(p.getName());
+        this.registeredPlayer.add(p.getName());
         // to-do: set player password
+    }
+
+    public void removeRegInfo(Player p) {
+        this.registeredPlayer.remove(p.getName());
+        this.attemptTimes.remove(p.getName());
+    }
+
+    public void removeRegInfo(String p) {
+        this.registeredPlayer.remove(p);
+        this.attemptTimes.remove(p);
     }
 }

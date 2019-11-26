@@ -16,20 +16,22 @@ public class LoginManager {
         return instance;
     }
 
-    ArrayList<Player> authed = new ArrayList<>();
+    private ArrayList<String> authed = new ArrayList<>();
 
     public boolean isAuthPlayer(Player p) {
-        return this.authed.contains(p);
+        return this.authed.contains(p.getName());
     }
 
     public void authPlayer(Player p) {
-        this.authed.add(p);
+        this.authed.add(p.getName());
         // print info
     }
 
     public void unauthPlayer(Player p) {
-        this.authed.remove(p);
+        this.authed.remove(p.getName());
     }
 
-
+    public void unauthPlayer(String p) {
+        this.authed.remove(p);
+    }
 }
