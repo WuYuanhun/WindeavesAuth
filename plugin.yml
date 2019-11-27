@@ -2,3 +2,17 @@ name: WindeavesAuth
 main: com.windeaves.WindeavesAuth
 version: 0.1-Alpha
 description: A Auth Plugin for Windeaves Collection
+commands:
+  register:
+    description: registe new account
+    usage: /<command> [password] [password repeated again]
+  login:
+    description: login command
+    usage: /<command> [password]
+    aliases: [l]
+  resetpassword:
+    description: reset account
+    usage: /<command> [old password] [new password] [newe password repeated again]
+  WDauth:
+    description: OP Plugin Manager Command
+    usage: /<command> [para]

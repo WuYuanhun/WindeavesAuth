@@ -16,6 +16,8 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(final PlayerJoinEvent e) {
         final Player p = e.getPlayer();
 
+        p.sendMessage("Enable");
+
         if(p.isOp()) {
             MessageManager.getInstance().PluginInfo(p);
         }

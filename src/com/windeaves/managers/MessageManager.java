@@ -1,5 +1,6 @@
 package com.windeaves.managers;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -15,18 +16,18 @@ public class MessageManager {
         return instance;
     }
 
-    private String prefix = "[WindeavesAuth]";
+    private String prefix = "[WindeavesAuth] ";
 
     public String getPrefix() {
         return this.prefix;
     }
 
     public void showLoginMes(Player p) {
-        p.sendMessage(prefix + "Login");
+        p.sendMessage(prefix + "Please login use \\login [password]");
     }
 
     public void showRegisterMes(Player p) {
-        p.sendMessage(prefix + "Register");
+        p.sendMessage(prefix + "Please register use \\register [password] [repeated password]");
     }
 
 
