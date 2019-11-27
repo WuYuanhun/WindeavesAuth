@@ -73,4 +73,12 @@ public class MessageManager {
     public void showCommandHelp(Player p) {
         p.sendMessage(prefix + "Command Help");
     }
+
+    public void showSetSpawnMes(Player p) {
+        p.sendMessage(prefix + "Set Spawn Mes");
+    }
+
+    public void PluginInfo(Player p) {
+        p.sendMessage(prefix + " is running");
+    }
 }
